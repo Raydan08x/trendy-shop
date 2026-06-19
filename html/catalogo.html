@@ -14,42 +14,45 @@
 </head>
 
 <body>
-    <main class="catalog-shell container-xl">
-        <section id="carouselExampleInterval" class="carousel slide catalog-carousel" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active" data-bs-interval="5000">
-                    <img src="" class="d-block w-100 catalog-carousel__image" alt="Imagen principal de la coleccion 1">
-                    <div class="carousel-caption catalog-banner">
-                        <span class="catalog-banner__eyebrow">Drop 01</span>
-                        <h2>Texturas suaves, tonos arena y detalles que elevan cada look.</h2>
-                        <p>Una seleccion pensada para quienes buscan piezas versatiles con presencia visual.</p>
-                    </div>
-                </div>
-                <div class="carousel-item" data-bs-interval="5000">
-                    <img src="" class="d-block w-100 catalog-carousel__image" alt="Imagen principal de la coleccion 2">
-                    <div class="carousel-caption catalog-banner">
-                        <span class="catalog-banner__eyebrow">Drop 02</span>
-                        <h2>Capsulas minimalistas para combinar diario sin perder estilo.</h2>
-                        <p>Prendas, accesorios y basicos premium con una estetica limpia y calida.</p>
-                    </div>
-                </div>
-                <div class="carousel-item" data-bs-interval="5000">
-                    <img src="" class="d-block w-100 catalog-carousel__image" alt="Imagen principal de la coleccion 3">
-                    <div class="carousel-caption catalog-banner">
-                        <span class="catalog-banner__eyebrow">Drop 03</span>
-                        <h2>Seleccion curada para regalo, coleccion o compra personal.</h2>
-                        <p>El catalogo mantiene el tono sobrio del inicio, pero con mas foco en producto.</p>
-                    </div>
-                </div>
+    <main class="catalogo-contenedor container-xl">
+        <section class="catalogo-encabezado">
+            <span class="catalogo-encabezado__etiqueta">Filtrar por categoria</span>
+            <h1>Productos</h1>
+            <p>Explora una selección de hasta 25 productos, mostrados en páginas de 10 elementos.</p>
+        <button class="icon-button icon-button--label btn-filtro" type="button" data-filtro="todos">
+  Todos
+</button>
+
+<button class="icon-button icon-button--label btn-filtro" type="button" data-filtro="ropa-hombre">
+  Ropa hombre
+</button>
+
+<button class="icon-button icon-button--label btn-filtro" type="button" data-filtro="ropa-mujer">
+  Ropa mujer
+</button>
+
+<button class="icon-button icon-button--label btn-filtro" type="button" data-filtro="zapatos-hombre">
+  Zapatos hombre
+</button>
+
+<button class="icon-button icon-button--label btn-filtro" type="button" data-filtro="zapatos-mujer">
+  Zapatos mujer
+</button>
+
+<button class="icon-button icon-button--label btn-filtro" type="button" data-filtro="accesorios">
+  Accesorios
+</button>
+</section>
+
+        <section class="catalogo-productos">
+            <div id="catalogoEstado" class="catalogo-estado">Cargando productos...</div>
+            <div id="contenedor-productos" class="pricing-lab"></div>
+
+            <div class="catalogo-paginacion">
+                <button id="paginaAnterior" type="button" class="secondary-button">Anterior</button>
+                <span id="paginaActual" class="catalogo-paginacion__estado">Pagina 1</span>
+                <button id="paginaSiguiente" type="button" class="primary-button">Siguiente</button>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Anterior</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Siguiente</span>
-            </button>
         </section>
     </main>
 

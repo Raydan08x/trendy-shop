@@ -6,6 +6,10 @@
     --nav-text: #1e1e1e;
     --font-primary: "Manrope", Arial, Helvetica, sans-serif;
     --font-heading: "Manrope", Arial, Helvetica, sans-serif;
+    --border: rgba(209, 122, 91, 0.22);
+    --radius-md: 24px;
+    --text: #241d1a;
+    --muted: rgba(30, 30, 30, 0.72);
 }
 
 body {
@@ -62,15 +66,18 @@ body {
 
 .nav-link,
 .icon-button,
-.dropdown__menu button {
-    border: 1px solid #66666600;
+.dropdown__menu button,
+.primary-button,
+.secondary-button {
+    border: 1px solid transparent;
     border-radius: 999px;
     background: transparent;
     color: inherit;
     text-decoration: none;
     padding: 10px 14px;
-    transition: transform 0.2s ease, color 0.2s ease, text-shadow 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s ease, color 0.2s ease, text-shadow 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     cursor: pointer;
+    font: inherit;
 }
 
 .nav-link:hover,
@@ -110,81 +117,168 @@ body {
     box-shadow: 0 18px 34px rgba(15, 23, 42, 0.34);
 }
 
-.catalog-shell {
+.catalogo-contenedor {
     margin-top: 36px;
 }
 
-.catalog-carousel {
-    overflow: hidden;
-    border: 1px solid rgba(209, 122, 91, 0.22);
+.catalogo-encabezado,
+.catalogo-productos {
+    border: 1px solid var(--border);
     border-radius: 28px;
     background: rgba(250, 249, 246, 0.92);
     box-shadow: 0 18px 40px rgba(209, 122, 91, 0.12);
 }
 
-.catalog-carousel__image {
-    min-height: 540px;
-    object-fit: cover;
-    background:
-        radial-gradient(circle at top left, rgba(233, 221, 207, 0.95), transparent 36%),
-        linear-gradient(135deg, rgba(250, 249, 246, 1), rgba(241, 228, 214, 1));
-}
-
-.catalog-banner {
-    right: auto;
-    bottom: 40px;
-    left: 40px;
-    width: min(520px, calc(100% - 80px));
+.catalogo-encabezado {
+    margin-bottom: 24px;
     padding: 28px;
-    border: 1px solid rgba(209, 122, 91, 0.22);
-    border-radius: 28px;
-    background: rgba(250, 249, 246, 0.88);
-    box-shadow: 0 18px 40px rgba(209, 122, 91, 0.12);
-    color: var(--nav-text);
-    text-align: left;
 }
 
-.catalog-banner__eyebrow {
+.catalogo-encabezado__etiqueta,
+.pricing-lab__badge {
     display: inline-flex;
-    align-items: center;
-    justify-content: center;
     width: fit-content;
-    padding: 8px 14px;
+    padding: 6px 10px;
     border-radius: 999px;
-    background: rgba(233, 221, 207, 0.85);
+    background: rgba(209, 122, 91, 0.14);
     color: #a95b3f;
-    font-size: 0.8rem;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 700;
 }
 
-.catalog-banner h2 {
-    margin: 16px 0 12px;
-    color: #241d1a;
-    font-size: clamp(2rem, 4vw, 3.4rem);
-    font-weight: 800;
-    line-height: 1.05;
+.catalogo-encabezado h1 {
+    margin: 14px 0 10px;
+    color: var(--text);
     font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 3rem);
 }
 
-.catalog-banner p {
+.catalogo-encabezado p {
     margin: 0;
-    color: rgba(30, 30, 30, 0.72);
+    color: var(--muted);
     line-height: 1.7;
 }
 
-.carousel-control-prev,
-.carousel-control-next {
-    width: 8%;
+.catalogo-productos {
+    padding: 24px;
 }
 
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    border-radius: 50%;
-    background-color: rgba(209, 122, 91, 0.82);
-    background-size: 52% 52%;
-    box-shadow: 0 12px 24px rgba(209, 122, 91, 0.2);
+.btn-filtro.activo {
+    transform: translateY(-1px);
+    background: transparent;
+    color: #e4764e;
+    text-shadow: 0 0 10px #d17a5bcc;
+}
+
+.catalogo-estado {
+    min-height: 24px;
+    margin-bottom: 16px;
+    color: var(--muted);
+    font-weight: 600;
+}
+
+.pricing-lab {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 360px));
+    gap: 18px;
+    justify-content: start;
+}
+
+.pricing-lab__card {
+    display: grid;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.82);
+    box-shadow: 0 14px 28px rgba(209, 122, 91, 0.08);
+    overflow: hidden;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+}
+
+.pricing-lab__card:hover,
+.pricing-lab__card:focus-within {
+    transform: translateY(-6px);
+    background: linear-gradient(180deg, rgba(209, 122, 91, 0.16), rgba(255, 255, 255, 0.9));
+    border-color: rgba(209, 122, 91, 0.45);
+    box-shadow: 0 18px 36px rgba(209, 122, 91, 0.18);
+}
+
+.pricing-lab__card:active {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(209, 122, 91, 0.16);
+}
+
+.pricing-lab__card h4 {
+    margin: 0;
+    color: var(--text);
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+}
+
+.pricing-lab__imagen {
+    width: 100%;
+    height: 260px;
+    min-height: 260px;
+    object-fit: contain;
+    padding: 22px;
+    background: linear-gradient(135deg, rgba(250, 249, 246, 1), rgba(233, 221, 207, 1));
+}
+
+.pricing-lab__cuerpo {
+    display: grid;
+    gap: 12px;
+    padding: 20px;
+}
+
+.pricing-lab__cuerpo p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.65;
+}
+
+.pricing-lab__meta strong {
+    color: var(--text);
+}
+
+.primary-button {
+    background: linear-gradient(135deg, var(--nav-secondary), var(--nav-primary));
+    color: #000000 ;
+    box-shadow: 0 12px 24px rgba(209, 122, 91, 0.18);
+    
+}
+
+.secondary-button {
+    border-color: rgba(209, 122, 91, 0.22);
+    background: rgba(255, 255, 255, 0.7);
+    color: var(--text);
+}
+
+.primary-button:hover,
+.secondary-button:hover {
+    transform: translateY(-1px);
+}
+
+.catalogo-paginacion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+}
+
+.catalogo-paginacion__estado {
+    min-width: 110px;
+    text-align: center;
+    color: var(--text);
+    font-weight: 700;
+}
+
+.primary-button:disabled,
+.secondary-button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
 }
 
 .site-footer {
@@ -288,16 +382,14 @@ body {
         padding: 20px;
     }
 
-    .catalog-carousel__image {
-        min-height: 420px;
+    .catalogo-encabezado,
+    .catalogo-productos {
+        padding: 20px;
     }
 
-    .catalog-banner {
-        right: 20px;
-        bottom: 20px;
-        left: 20px;
-        width: auto;
-        padding: 22px;
+    .pricing-lab__imagen {
+        height: 220px;
+        min-height: 220px;
     }
 
     .site-footer__grid,
