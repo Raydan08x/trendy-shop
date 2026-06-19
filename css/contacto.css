@@ -19,6 +19,25 @@ body {
         linear-gradient(135deg, #faf9f6, #faf9f6);
 }
 
+body {
+    font-family: 'Manrope', sans-serif;
+    background-color: #f8f9fa;
+}
+
+.h3{
+    text-align: center;
+
+}
+
+iframe {
+    border: 0;
+}
+
+.card {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
 .glass-navbar {
     width: min(1120px, 100%);
     margin: 0 auto;
@@ -260,7 +279,20 @@ body {
     border: 1px solid rgba(209, 122, 91, 0.25);
     box-shadow: 0 12px 24px rgba(209, 122, 91, 0.14);
 }
+.contenedor-form {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
 
+.contenedor-form img {
+    width: 700px;
+    height: autocenter;
+}
+.field-error {
+    color: red;
+    font-size: 14px;
+}
 @media (max-width: 720px) {
     .site-footer__grid,
     .site-footer__bottom {
