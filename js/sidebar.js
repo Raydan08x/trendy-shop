@@ -259,8 +259,6 @@ export class SidebarMenu {
     this.sidebar.classList.add('is-open');
     this.sidebar.setAttribute('aria-hidden', 'false');
     this.overlay.classList.add('is-active');
-    this.emptyState.style.display = "block";
-    this.emptyState.style.display = "none";
   }
 
 renderCart() {
