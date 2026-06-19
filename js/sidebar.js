@@ -20,8 +20,8 @@ export class SidebarMenu {
     return `
       <aside class="sidebar" id="sidebar" aria-hidden="true">
         <div class="sidebar__header">
-          <strong>Menu lateral</strong>
-          <button id="closeSidebar" type="button" aria-label="Cerrar menu">Cerrar</button>
+          <strong>🛒 Mi carrito</strong>
+          <button id="closeSidebar" type="button" aria-label="Cerrar menu">✕</button>
         </div>
         <nav class="sidebar__content" aria-label="Carrito">
           <a href="${this.getLink('index.html')}">Inicio</a>
@@ -67,8 +67,8 @@ export class SidebarMenu {
           radial-gradient(circle at top left, rgba(233, 221, 207, 0.9), transparent 32%),
           linear-gradient(180deg, rgba(250, 249, 246, 0.98), rgba(245, 238, 229, 0.98));
         color: #1e1e1e;
-        transform: translateX(+105%);
-        transition: transform 0.25s ease;
+        transform: translateX(105%);
+        transition: transform 0.3s ease;
         border-left: 1px solid rgba(102, 102, 102, 0.35);
         box-shadow: 0 24px 50px rgba(209, 122, 91, 0.22);
       }
