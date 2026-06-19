@@ -21,14 +21,19 @@ export class SidebarMenu {
       <aside class="sidebar" id="sidebar" aria-hidden="true">
         <div class="sidebar__header">
           <strong>🛒 Mi carrito</strong>
-          <button id="closeSidebar" type="button" aria-label="Cerrar menu">✕</button>
+          <button id="closeSidebar" class="sidebar__close" type="button" aria-label="Cerrar menu"><i class="bi bi-x-lg"></i></button>
         </div>
-        <nav class="sidebar__content" aria-label="Carrito">
-          <a href="${this.getLink('index.html')}">Inicio</a>
-          <a href="${this.getLink('catalogo.html')}">Catalogo</a>
-          <a href="${this.getLink('contacto.html')}">Contacto</a>
-          <a href="${this.getLink('carrito.html')}">Carrito</a>
-        </nav>
+<div class="sidebar__content">
+  <div class="sidebar__empty">
+    <div class="sidebar__empty-icon"><i class="bi bi-bag-heart"></i></div>
+
+    <h3>Tu carrito te está esperando</h3>
+
+    <p>
+      Explora nuestra colección y encuentra algo especial.
+    </p>
+  </div>
+</div>
       </aside>
       <div class="overlay" id="overlay"></div>
     `;
@@ -54,7 +59,7 @@ export class SidebarMenu {
 
     const style = document.createElement('style');
     style.id = 'sidebarMenuStyles';
-      style.textContent = `
+    style.textContent = `
       .sidebar {
         position: fixed;
         top: 0;
@@ -92,30 +97,6 @@ export class SidebarMenu {
         margin-top: 20px;
       }
 
-      .sidebar__content a,
-      #closeSidebar {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 10px 14px;
-        border: 1px solid rgba(209, 122, 91, 0.2);
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.55);
-        color: inherit;
-        text-decoration: none;
-        cursor: pointer;
-        transition: transform 0.2s ease, color 0.2s ease, text-shadow 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-      }
-
-      .sidebar__content a:hover,
-      #closeSidebar:hover {
-        transform: translateY(-1px);
-        color: #e4764e;
-        background: rgba(255, 255, 255, 0.78);
-        text-shadow: 0 0 10px rgba(209, 122, 91, 0.6);
-        box-shadow: 0 10px 24px rgba(209, 122, 91, 0.14);
-      }
-
       .overlay {
         position: fixed;
         inset: 0;
@@ -130,6 +111,72 @@ export class SidebarMenu {
         opacity: 1;
         pointer-events: auto;
       }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-8px);
+    }
+
+    100% {
+      transform: translateY(0);
+    }
+  }
+  @keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+      .sidebar__empty-icon {
+        font-size: 3rem;
+        text-align: center;
+        animation: float 3s ease-in-out infinite;
+        filter: drop-shadow(0 8px 16px rgba(209, 122, 91, 0.15));
+}
+    .sidebar__empty {
+      text-align: center;
+      animation: fadeIn 0.4s ease;
+}
+
+    .sidebar__empty h3 {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+}
+    .sidebar__empty p {
+      opacity: 0.75;
+      line-height: 1.6;
+}
+    .sidebar__close{
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+  .sidebar__close {
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+    .sidebar__close:hover {
+      transform: rotate(90deg);
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 6px 16px rgba(209, 122, 91, 0.15);
+}
     `;
 
     document.head.appendChild(style);
